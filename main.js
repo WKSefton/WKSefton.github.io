@@ -153,7 +153,7 @@ module.exports = "@-webkit-keyframes flip {\r\n    0% {\r\n        -webkit-trans
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<svg [ngClass]=\"animate? 'flip':'shadow-lg rounded bg-gradient-primary'\" [attr.width]=\"width\" [attr.height]=\"height\" viewBox=\"0 24 175 200\">\n    <use [attr.href]=\"'assets/svg-cards-indented.svg#' + card\" x=\"0\" y=\"0\" [attr.fill]='color' (click)='flip()'/>\n</svg>"
+module.exports = "<svg [ngClass]=\"animate? 'flip':'shadow-lg rounded bg-transparent'\" [attr.height]=\"height\" [attr.width]=\"width\" viewBox=\"0 0 169.075 244.640\">\n    <use [attr.href]=\"'assets/svg-cards-indented.svg#' + card\" x=\"0\" y=\"0\" [attr.fill]='color' (click)='flip()'/>\n</svg>"
 
 /***/ }),
 
@@ -180,22 +180,22 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 var CardComponent = /** @class */ (function () {
     function CardComponent() {
-        this.temp = 'back';
+        this.temp = 'alternate-back';
         this.animate = false;
     }
     CardComponent.prototype.ngOnInit = function () {
-        this.height = this.scale * 100;
-        this.width = this.height * 0.7;
+        this.height = this.scale * 244.640;
+        this.width = this.scale * 169.075;
     };
     CardComponent.prototype.flip = function () {
         this.animate = !this.animate;
-        if (this.card == 'back') {
+        if (this.card == 'alternate-back') {
             this.card = this.temp;
             this.color = '';
         }
         else {
             this.temp = this.card;
-            this.card = 'back';
+            this.card = 'alternate-back';
             this.color = this.fill;
         }
     };
@@ -277,7 +277,7 @@ var DeckComponent = /** @class */ (function () {
             rank: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'jack', 'queen', 'king']
         };
         this.color = 'red';
-        this.value = 2;
+        this.value = 1;
     }
     DeckComponent.prototype.ngOnInit = function () {
         this.dealCards();
@@ -293,6 +293,8 @@ var DeckComponent = /** @class */ (function () {
                 this.deck.push(suit + '_' + rank);
             }
         }
+        this.deck.push('joker_black');
+        this.deck.push('joker_red');
     };
     DeckComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -327,7 +329,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='row'>\n  <nav class=\"col navbar navbar-dark bg-dark rounded shadow p-3\">\n    <a class='navbar-brand' href='#'>SVG CARDS</a>\n    \n    <div class=\"input-group input-group-sm mb-3\">\n        <div class=\"input-group-prepend\">\n          <span class=\"input-group-text\" id=\"inputGroup-sizing-sm\">Scale</span>\n        </div>\n        <input type=\"text\" class=\"form-control\" aria-label=\"Sizing example input\" aria-describedby=\"inputGroup-sizing-sm\">\n      </div>\n      \n        <button class=\"btn btn-outline-success m-1\" type=\"submit\">View</button>\n        <button class=\"btn btn-outline-warning m-1\" type=\"submit\">reset</button>\n     \n  </nav>\n</div>\n"
+module.exports = "<div class='row'>\n  <nav class=\"col navbar navbar-dark bg-dark rounded shadow p-3 text-center\">\n    <a class='navbar-brand ml-3' href='#'>SVG CARDS</a>\n         \n  </nav>\n</div>\n"
 
 /***/ }),
 
