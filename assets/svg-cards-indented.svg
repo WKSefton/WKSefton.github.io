@@ -1341,19 +1341,21 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 1833.83,-231.667 -130.78,0" />
       </g>
       <g>
-        <use xlink:href="#club" x="713.26398" y="-85.257301"
+      <!-- CHANGES MADE TO CLUBS -->
+        <use xlink:href="#club" x="672.26398" y="-83.257301"
         transform="matrix(-2.4,0,0,-2.4,3423.6672,-409.23504)"
          width="100%" height="100%" />
         <rect x="1693.33" y="-223.601" width="9.6925697"
         height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#club" x="753.01703" y="-10.2745"
+        <use xlink:href="#club" x="712.01703" y="-8.2745"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
         <rect x="1816.49" y="-43.642799" width="9.6925697"
         height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,4.4710094,55.21189)">
         <line x1="1718.46" y1="-55.102501" x2="1800.61"
         y2="-174.295" style="stroke:#000000;stroke-width:7.25" />
@@ -1483,19 +1485,21 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2002.9,-231.667 -132.28,0" />
       </g>
       <g>
-        <use xlink:href="#club" x="783.08698" y="-85.257301"
+      <!-- CHANGES MADE TO CLUB POSITION-->
+        <use xlink:href="#club" x="741.08698" y="-85.257301"
         transform="matrix(-2.4,0,0,-2.4,3758.8176,-409.23504)"
          width="100%" height="100%" />
         <rect x="1860.91" y="-223.601" width="9.6925697"
         height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#club" x="822.84003" y="-10.2745"
+        <use xlink:href="#club" x="781.15698" y="-10.2745"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
         <rect x="1984.0699" y="-43.642799" width="9.6925697"
         height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,4.5536951,60.475391)">
         <line x1="1880.83" y1="-47.5438" x2="1973.4" y2="-181.854"
         style="stroke:#000000;stroke-width:7.25" />
@@ -1637,19 +1641,21 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2168.6,-231.667 -130.4,0" />
       </g>
       <g>
-        <use xlink:href="#club" x="852.90997" y="-85.257301"
+      <!-- CHANGES MADE TO CLUBS -->
+        <use xlink:href="#club" x="812.90997" y="-85.257301"
         transform="matrix(-2.4,0,0,-2.4,4093.968,-409.23504)"
          width="100%" height="100%" />
         <rect x="2028.48" y="-223.601" width="9.6925697"
         height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#club" x="892.66302" y="-10.2745"
+        <use xlink:href="#club" x="851.66302" y="-10.2745"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
         <rect x="2151.6399" y="-43.642799" width="9.6925697"
         height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,4.6363857,65.739206)">
         <line x1="2052.05" y1="-52.8349" x2="2137.3301"
         y2="-176.563" style="stroke:#000000;stroke-width:7.25" />
@@ -2107,19 +2113,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 1835.33,11.47 -132.28,0" />
       </g>
       <g>
-        <use xlink:href="#diamond" x="713.26398" y="16.049999"
+      <!-- -->
+        <use xlink:href="#diamond" x="673.26398" y="16.049999"
         transform="matrix(-2.4,0,0,-2.4,3423.6672,77.04)"
          width="100%" height="100%" />
-        <rect x="1693.33" y="19.535999" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#diamond" x="753.01703" y="91.032799"
+        <use xlink:href="#diamond" x="712.01703" y="91.032799"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="1816.49" y="199.495" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-3.1661397,55.331864)">
         <line x1="1722.98" y1="181.48399" x2="1796.1"
         y2="75.393303" style="stroke:#000000;stroke-width:7.25" />
@@ -2240,19 +2244,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2002.9,11.47 -132.28,0" />
       </g>
       <g>
-        <use xlink:href="#diamond" x="783.08698" y="16.049999"
+      <!-- CHANGES MADE TO DIAMONDS -->
+        <use xlink:href="#diamond" x="740.08698" y="16.049999"
         transform="matrix(-2.4,0,0,-2.4,3758.8176,77.04)"
          width="100%" height="100%" />
-        <rect x="1860.91" y="19.535999" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#diamond" x="822.84003" y="91.032799"
+        <use xlink:href="#diamond" x="779.84003" y="91.032799"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="1984.0699" y="199.495" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-3.083454,60.595365)">
         <line x1="1888.64" y1="184.256" x2="1965.58" y2="72.621803"
         style="stroke:#000000;stroke-width:7.25" />
@@ -2379,20 +2381,18 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2169.1,189.107 0,-177.637" />
         <path d="m 2169.1,11.47 -130.9,0" />
       </g>
+      <!-- CHANGES MADE TO DIAMONDS -->
       <g>
-        <use xlink:href="#diamond" x="852.90997" y="16.049999"
+        <use xlink:href="#diamond" x="811.90997" y="16.049999"
         transform="matrix(-2.4,0,0,-2.4,4093.968,77.04)"
          width="100%" height="100%" />
-        <rect x="2028.48" y="19.535999" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#diamond" x="892.66302" y="91.032799"
+        <use xlink:href="#diamond" x="851.66302" y="91.032799"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="2151.6399" y="199.495" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-3.0007634,65.85918)">
         <line x1="2049.27" y1="194.334" x2="2140.1001"
         y2="62.543598" style="stroke:#000000;stroke-width:7.25" />
@@ -2863,19 +2863,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 1834.2,254.607 -131.15,0" />
       </g>
       <g>
-        <use xlink:href="#heart" x="713.26398" y="117.357"
+      <!-- CHANGES MADE TO HEARTS -->
+        <use xlink:href="#heart" x="673.26398" y="117.357"
         transform="matrix(-2.4,0,0,-2.4,3423.6672,563.3136)"
          width="100%" height="100%" />
-        <rect x="1693.33" y="262.673" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#heart" x="753.01703" y="192.34"
+        <use xlink:href="#heart" x="713.01703" y="192.34"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="1816.49" y="442.63199" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-10.803257,55.451837)">
         <line x1="1718.98" y1="430.41699" x2="1800.09"
         y2="312.73599" style="stroke:#000000;stroke-width:7.25" />
@@ -3008,19 +3006,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2001.15,254.607 -130.53,0" />
       </g>
       <g>
-        <use xlink:href="#heart" x="783.08698" y="117.357"
+      <!-- CHANGES MADE TO HEARTS -->
+        <use xlink:href="#heart" x="741.08698" y="117.357"
         transform="matrix(-2.4,0,0,-2.4,3758.8176,563.3136)"
          width="100%" height="100%" />
-        <rect x="1860.91" y="262.673" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#heart" x="822.84003" y="192.34"
+        <use xlink:href="#heart" x="780.84003" y="192.34"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="1984.0699" y="442.63199" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-10.720572,60.715338)">
         <line x1="1880.3101" y1="439.487" x2="1973.92"
         y2="303.66501" style="stroke:#000000;stroke-width:7.25" />
@@ -3167,19 +3163,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2170.47,254.607 -132.27,0" />
       </g>
       <g>
-        <use xlink:href="#heart" x="852.90997" y="117.357"
+      <!-- CHANGES MADE TO HEARTS -->
+        <use xlink:href="#heart" x="812.90997" y="117.357"
         transform="matrix(-2.4,0,0,-2.4,4093.968,563.3136)"
          width="100%" height="100%" />
-        <rect x="2028.48" y="262.673" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#heart" x="892.66302" y="192.34"
+        <use xlink:href="#heart" x="851.66302" y="192.34"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="2151.6399" y="442.63199" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-10.637881,65.979153)">
         <line x1="2052.8301" y1="432.306" x2="2136.54"
         y2="310.84601" style="stroke:#000000;stroke-width:7.25" />
@@ -3620,19 +3614,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 1834.58,497.745 -131.53,0" />
       </g>
       <g>
-        <use xlink:href="#spade" x="713.26398" y="218.66499"
+      <!-- CHANGES MADE TO SPADES -->
+        <use xlink:href="#spade" x="672.26398" y="218.66499"
         transform="matrix(-2.4,0,0,-2.4,3423.6672,1049.592)"
          width="100%" height="100%" />
-        <rect x="1693.33" y="505.811" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#spade" x="753.01703" y="293.647"
+        <use xlink:href="#spade" x="712.01703" y="293.647"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="1816.49" y="685.77002" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-18.440407,55.571811)">
         <line x1="1722.89" y1="667.88501" x2="1796.1801"
         y2="561.54199" style="stroke:#000000;stroke-width:7.25" />
@@ -3755,19 +3747,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2002.9,497.745 -132.28,0" />
       </g>
       <g>
-        <use xlink:href="#spade" x="783.08698" y="218.66499"
+      <!-- CHANGES MADE TO SPADES -->
+        <use xlink:href="#spade" x="740.08698" y="218.66499"
         transform="matrix(-2.4,0,0,-2.4,3758.8176,1049.592)"
          width="100%" height="100%" />
-        <rect x="1860.91" y="505.811" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#spade" x="822.84003" y="293.647"
+        <use xlink:href="#spade" x="780.84003" y="293.647"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="1984.0699" y="685.77002" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-18.357721,60.835312)">
         <line x1="1881" y1="681.617" x2="1973.22" y2="547.81097"
         style="stroke:#000000;stroke-width:7.25" />
@@ -3909,19 +3899,17 @@ height="244.640" width="169.075" viewBox="0 0 169.075 244.640">
         <path d="m 2170.47,497.745 -132.27,0" />
       </g>
       <g>
-        <use xlink:href="#spade" x="852.90997" y="218.66499"
+      <!-- CHANGES MADE TO SPADES -->
+        <use xlink:href="#spade" x="808.90997" y="218.66499"
         transform="matrix(-2.4,0,0,-2.4,4093.968,1049.592)"
          width="100%" height="100%" />
-        <rect x="2028.48" y="505.811" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
       <g>
-        <use xlink:href="#spade" x="892.66302" y="293.647"
+        <use xlink:href="#spade" x="848.66302" y="293.647"
         transform="scale(2.4,2.4)" width="100%"
         height="100%" />
-        <rect x="2151.6399" y="685.77002" width="9.6925697"
-        height="37.967999" style="fill:#ffffff" />
       </g>
+      <!-- -->
       <g transform="matrix(0.99950656,-0.03141076,0.03141076,0.99950656,-18.27503,66.099127)">
         <line x1="2047.53" y1="683.12799" x2="2141.8401"
         y2="546.29901" style="stroke:#000000;stroke-width:7.25" />
