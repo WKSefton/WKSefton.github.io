@@ -471,7 +471,7 @@ var DeckComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'svg-deck',
             template: __webpack_require__(/*! ./svg-deck.component.html */ "./src/app/svg-deck/svg-deck.component.html"),
-            styles: ["\n    .backfill, .cardscale, .decksize {\n      width: 10rem;\n    }\n    #dropdown {\n      height: 2vh;\n\n      padding-bottom: 0px;\n      padding-top: 20px;\n      overflow: hidden;\n      transition: all 1s ease-out;\n    }\n    #dropdown:hover { \n      height: 25vh;\n      padding: 30px;\n    }\n  "]
+            styles: ["\n    .backfill, .cardscale, .decksize {\n      width: 10rem;\n    }\n    #dropdown {\n      height: 2vh;\n\n      padding-bottom: 0px;\n      padding-top: 20px;\n      overflow: hidden;\n      transition: all 1s ease-in-out;\n    }\n    #dropdown:hover { \n      height: 325px;\n      padding: 30px;\n    }\n  "]
         }),
         __metadata("design:paramtypes", [_svg_deck_service__WEBPACK_IMPORTED_MODULE_1__["DeckService"]])
     ], DeckComponent);
