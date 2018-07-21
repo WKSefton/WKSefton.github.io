@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-menu></app-menu>\n<svg-deck [color]=\"'darkblue'\"></svg-deck>"
+module.exports = "<app-menu></app-menu>\n<svg-deck [fill]=\"'darkblue'\"></svg-deck>"
 
 /***/ }),
 
@@ -202,7 +202,7 @@ var MenuComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<svg [attr.height]=\"height\" [attr.width]=\"width\" [@flipState]='state' (click)='toggleState()' viewBox=\"0 0 169.075 244.640\">\n    <use [attr.href]=\"'assets/svg-cards-indented.svg#' + card\" x=\"0\" y=\"0\" [attr.fill]='fill'/>\n</svg>"
+module.exports = "<div style='display:inline-block;' class='m-3' [attr.height]=\"height\" [attr.width]=\"width\">\n    <div class='svgcard' (click)='toggleState()' [@flipState]='state'>\n        <div class='back'>\n            <svg [attr.height]=\"height\" [attr.width]=\"width\" viewBox=\"0 0 169.075 244.640\">\n                <use [attr.href]=\"'assets/svg-cards-indented.svg#' + back\" [attr.fill]='fill' />\n            </svg>\n        </div>\n        <div class='face'>\n            <svg [attr.height]=\"height\" [attr.width]=\"width\" viewBox=\"0 0 169.075 244.640\">\n                <use [attr.href]=\"'assets/svg-cards-indented.svg#' + card\" />\n            </svg>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -233,34 +233,15 @@ var CardComponent = /** @class */ (function () {
     function CardComponent() {
         this.card = 'spade_1';
         this.scale = 1;
-        this.state = 'flipped';
+        this.state = 'face';
         this.back = 'back';
     }
     CardComponent.prototype.ngOnInit = function () {
         this.height = this.scale * 244.640;
         this.width = this.scale * 169.075;
-        this.tempcard = this.card;
-        this.tempcolor = this.fill;
-        this.flipCard();
-    };
-    CardComponent.prototype.ngOnChanges = function () {
-        if (this.state == 'flipped' && this.fill == '') {
-            this.state = 'face';
-        }
     };
     CardComponent.prototype.toggleState = function () {
-        this.state = this.state === 'flipped' ? 'face' : 'flipped';
-        this.flipCard();
-    };
-    CardComponent.prototype.flipCard = function () {
-        if (this.state == 'face') {
-            this.card = this.tempcard;
-            this.fill = '';
-        }
-        else {
-            this.card = this.back;
-            this.fill = this.tempcolor;
-        }
+        this.state = this.state === 'back' ? 'face' : 'back';
     };
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
@@ -286,17 +267,19 @@ var CardComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'svg-card',
             template: __webpack_require__(/*! ./svg-cards.component.html */ "./src/app/svg-cards/svg-cards.component.html"),
-            styles: [],
+            styles: [
+                "\n    .svgcard{\n      transform-style: preserve-3d;\n      position: relative;\n    }\n    .face{\n      backface-visibility: hidden;\n    }\n    .back{\n      position: absolute;\n      backface-visibility: hidden;\n      transform: rotateY(180deg);\n    }\n    "
+            ],
             animations: [
                 Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('flipState', [
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('flipped', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('face', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+                        transform: 'rotateY(0deg)'
+                    })),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('back', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
                         transform: 'rotateY(180deg)'
                     })),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('face', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        transform: 'rotateY(0)'
-                    })),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('flipped => face', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('300ms ease-out')),
-                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('face => flipped', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('300ms ease-out'))
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('face => back', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in')),
+                    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('back => face', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-out'))
                 ])
             ]
         }),
@@ -374,7 +357,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='container'>\n  <div class=\"row justify-content-center\">\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend w-3\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setColor(color)'> Set Color </button>\n      </div>\n      <input type=\"text\" class=\"form-control\" type=\"text\" [(ngModel)]='color' />\n    </div>\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend w-3\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setScale(scale)'> Set Scale </button>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\".125\" type=\"number\" [(ngModel)]='scale' />\n    </div>\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setSize(initsize)'>Deck Size</button>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\"5\" max=\"500\" onwheel type=\"number\" [(ngModel)]='initsize' />\n    </div>\n\n\n    <button class='btn btn-primary m-1' (click)='getCard()'>Get Card</button>\n    <button class='btn btn-warning m-1' (click)='toggleBack()'>Toggle Back Type</button>\n    <button class='btn btn-warning m-1' (click)='toggleFace()'>Toggle Back/Face</button>\n\n    <button class='btn btn-danger m-1' (click)='resetCards()'>Reset Deck</button>\n  </div>\n  <div class='row'>\n    <div *ngFor='let card of deck' class='col m-2'>\n      <svg-card [scale]='scale' [card]='card' [fill]='color' [state]='state' [back]='back'></svg-card>\n    </div>\n  </div>\n</div>"
+module.exports = "<div class='container'>\n  <div class=\"row justify-content-center\">\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend w-3\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setFill()'> Set Color </button>\n      </div>\n      <input type=\"text\" class=\"form-control\" type=\"text\" [(ngModel)]='fill' />\n    </div>\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend w-3\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setScale()'> Set Scale </button>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\".125\" type=\"number\" [(ngModel)]='scale' />\n    </div>\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setSize()'>Deck Size</button>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\"5\" max=\"500\" onwheel type=\"number\" [(ngModel)]='deckSize' />\n    </div>\n\n\n    <button class='btn btn-primary m-1' (click)='getCard()'>Get Card</button>\n    <button class='btn btn-warning m-1' (click)='toggleBack()'>Toggle Back Type</button>\n    <button class='btn btn-warning m-1' (click)='toggleFace()'>Toggle Back/Face</button>\n\n    <button class='btn btn-danger m-1' (click)='resetCards()'>Reset Deck</button>\n  </div>\n\n</div>\n<div class=\"row\">\n\n  <svg-card *ngFor='let card of deck' class='col m-2' [scale]='scale' [card]='card' [fill]='fill' [state]='state' [back]='back'></svg-card>\n</div>\n"
 
 /***/ }),
 
@@ -402,41 +385,47 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var DeckComponent = /** @class */ (function () {
+    //DeckService injected
     function DeckComponent(_deckService) {
         this._deckService = _deckService;
-        //default scale = 1, color = red, state = face
-        this.scale = .25;
-        this.color = 'red';
-        this.state = 'flipped';
+        //default values set for inputs
+        this.scale = 1;
+        this.fill = 'red';
+        this.state = 'face';
         this.back = 'back';
-        this.initsize = 100;
-        //component deck array of cards
+        this.deckSize = 15;
+        //deck array of current cards in the component
         this.deck = [];
     }
     DeckComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.setScale(this.scale);
-        this.setColor(this.color);
+        //sends scale/fill/deckSize to the service
+        this.setScale();
+        this.setFill();
+        this.setSize();
+        //subscribes to the deck service
         this._deckService.scale.subscribe(function (data) { return _this.scale = data; }, function (error) { return console.log(error); });
-        this._deckService.initsize.subscribe(function (data) { return _this.initsize = data; }, function (error) { return console.log(error); });
-        this._deckService.color.subscribe(function (data) { return _this.color = data; }, function (error) { return console.log(error); });
+        this._deckService.deckSize.subscribe(function (data) { return _this.deckSize = data; }, function (error) { return console.log(error); });
+        this._deckService.fill.subscribe(function (data) { return _this.fill = data; }, function (error) { return console.log(error); });
         this._deckService.dealCard.subscribe(function (data) { return _this.deck.push(data); }, function (error) { return console.log(error); });
+        //clears cards
         this.resetCards();
-        this.setSize(this.initsize);
     };
-    DeckComponent.prototype.setSize = function (number) {
+    //sets the deckSize in the service and gets random cards
+    DeckComponent.prototype.setSize = function () {
         var _this = this;
-        if (number > 1000) {
+        if (this.deckSize > 1000) {
             return;
         }
         this.resetCards();
         setTimeout(function () {
-            _this._deckService.setSize(number);
-            for (var index = 0; index < _this.initsize; index++) {
+            _this._deckService.setDeckSize(_this.deckSize);
+            for (var index = 0; index < _this.deckSize; index++) {
                 _this.getCard();
             }
         }, 1000);
     };
+    //toggles between back and alternative-back
     DeckComponent.prototype.toggleBack = function () {
         if (this.back == 'back') {
             this.back = 'alternate-back';
@@ -445,9 +434,10 @@ var DeckComponent = /** @class */ (function () {
             this.back = 'back';
         }
     };
+    //toggles the face or back animation state
     DeckComponent.prototype.toggleFace = function () {
         if (this.state == 'face') {
-            this.state = 'flipped';
+            this.state = 'back';
         }
         else {
             this.state = 'face';
@@ -456,11 +446,11 @@ var DeckComponent = /** @class */ (function () {
     DeckComponent.prototype.getCard = function () {
         this._deckService.getCard();
     };
-    DeckComponent.prototype.setScale = function (value) {
-        this._deckService.setScale(value);
+    DeckComponent.prototype.setScale = function () {
+        this._deckService.setScale(this.scale);
     };
-    DeckComponent.prototype.setColor = function (color) {
-        this._deckService.setColor(color);
+    DeckComponent.prototype.setFill = function () {
+        this._deckService.setFill(this.fill);
     };
     DeckComponent.prototype.resetCards = function () {
         this.deck = [];
@@ -472,7 +462,7 @@ var DeckComponent = /** @class */ (function () {
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
-    ], DeckComponent.prototype, "color", void 0);
+    ], DeckComponent.prototype, "fill", void 0);
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", String)
@@ -484,7 +474,7 @@ var DeckComponent = /** @class */ (function () {
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Number)
-    ], DeckComponent.prototype, "initsize", void 0);
+    ], DeckComponent.prototype, "deckSize", void 0);
     DeckComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'svg-deck',
@@ -583,33 +573,40 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 var DeckService = /** @class */ (function () {
+    //deck array created in constructor
     function DeckService() {
+        //BehaviourSubjects and Observables
         this.localCard = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('');
         this.dealCard = this.localCard.asObservable();
         this.localScale = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
         this.scale = this.localScale.asObservable();
-        this.localColor = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('');
-        this.color = this.localColor.asObservable();
-        this.localSize = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
-        this.initsize = this.localSize.asObservable();
+        this.localFill = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"]('');
+        this.fill = this.localFill.asObservable();
+        this.localDeckSize = new rxjs__WEBPACK_IMPORTED_MODULE_1__["BehaviorSubject"](0);
+        this.deckSize = this.localDeckSize.asObservable();
         this.cards = {
             suit: ['club', 'diamond', 'heart', 'spade'],
             rank: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 'jack', 'queen', 'king']
         };
         this.createDeck();
     }
-    DeckService.prototype.setSize = function (number) {
-        this.localSize.next(number);
+    //sets the number of cards to be drawn
+    DeckService.prototype.setDeckSize = function (number) {
+        this.localDeckSize.next(number);
     };
+    //set scale of the cards keeping ratio in tact
     DeckService.prototype.setScale = function (value) {
         this.localScale.next(value);
     };
-    DeckService.prototype.setColor = function (color) {
-        this.localColor.next(color);
+    //sets the color fill for the back side of the card
+    DeckService.prototype.setFill = function (fill) {
+        this.localFill.next(fill);
     };
+    //draws a random card out of the deck array
     DeckService.prototype.getCard = function () {
         this.localCard.next(this.deck[Math.floor(Math.random() * 52)]);
     };
+    //creates the deck array
     DeckService.prototype.createDeck = function () {
         this.deck = [];
         for (var _i = 0, _a = this.cards.suit; _i < _a.length; _i++) {
