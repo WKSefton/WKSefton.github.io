@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-menu></app-menu>\n<svg-deck [fill]=\"'darkblue'\"></svg-deck>"
+module.exports = "<app-menu></app-menu>\n<svg-deck [fill]=\"'darkred'\" [deckSize]=\"'10'\"></svg-deck>"
 
 /***/ }),
 
@@ -202,7 +202,7 @@ var MenuComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div style='display:inline-block;' class='m-3' [attr.height]=\"height\" [attr.width]=\"width\">\n    <div class='svgcard' (click)='toggleState()' [@flipState]='state'>\n        <div class='back'>\n            <svg [attr.height]=\"height\" [attr.width]=\"width\" viewBox=\"0 0 169.075 244.640\">\n                <use [attr.href]=\"'assets/svg-cards-indented.svg#' + back\" [attr.fill]='fill' />\n            </svg>\n        </div>\n        <div class='face'>\n            <svg [attr.height]=\"height\" [attr.width]=\"width\" viewBox=\"0 0 169.075 244.640\">\n                <use [attr.href]=\"'assets/svg-cards-indented.svg#' + card\" />\n            </svg>\n        </div>\n    </div>\n</div>"
+module.exports = "<div style='display:inline-block;' class='m-1 rounded' [attr.height]=\"height\" [attr.width]=\"width\">\n    <div class='svgcard' (click)='toggleState()' [@flipState]='state'>\n        <div class='back shadow-lg rounded-circle'>\n            <svg [attr.height]=\"height\" [attr.width]=\"width\" viewBox=\"0 0 169.075 244.640\">\n                <use [attr.href]=\"'assets/svg-cards-indented.svg#' + back\" [attr.fill]='fill' />\n            </svg>\n        </div>\n        <div class='face shadow-lg rounded-circle'>\n            <svg [attr.height]=\"height\" [attr.width]=\"width\" viewBox=\"0 0 169.075 244.640\">\n                <use [attr.href]=\"'assets/svg-cards-indented.svg#' + card\" />\n            </svg>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -232,11 +232,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var CardComponent = /** @class */ (function () {
     function CardComponent() {
         this.card = 'spade_1';
+        this.fill = 'darkred';
         this.scale = 1;
         this.state = 'face';
         this.back = 'back';
     }
     CardComponent.prototype.ngOnInit = function () {
+    };
+    CardComponent.prototype.ngOnChanges = function () {
         this.height = this.scale * 244.640;
         this.width = this.scale * 169.075;
     };
@@ -268,15 +271,15 @@ var CardComponent = /** @class */ (function () {
             selector: 'svg-card',
             template: __webpack_require__(/*! ./svg-cards.component.html */ "./src/app/svg-cards/svg-cards.component.html"),
             styles: [
-                "\n    .svgcard{\n      transform-style: preserve-3d;\n      position: relative;\n    }\n    .face{\n      backface-visibility: hidden;\n    }\n    .back{\n      position: absolute;\n      backface-visibility: hidden;\n      transform: rotateY(180deg);\n    }\n    "
+                "\n    .svgcard{\n      transform-style: preserve-3d;\n      perspective: 600px;\n      position: relative;\n    }\n    .face{\n      backface-visibility: hidden;\n    }\n    .back{\n      position: absolute;\n      backface-visibility: hidden;\n      transform: rotateY(180deg);\n    }\n    "
             ],
             animations: [
                 Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('flipState', [
                     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('face', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        transform: 'rotateY(0deg)'
+                        transform: 'rotateY(-180deg)'
                     })),
                     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('back', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-                        transform: 'rotateY(180deg)'
+                        transform: 'rotateY(0deg)'
                     })),
                     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('face => back', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in')),
                     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('back => face', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-out'))
@@ -339,17 +342,6 @@ var SVGCardsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/svg-deck/svg-deck.component.css":
-/*!*************************************************!*\
-  !*** ./src/app/svg-deck/svg-deck.component.css ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/svg-deck/svg-deck.component.html":
 /*!**************************************************!*\
   !*** ./src/app/svg-deck/svg-deck.component.html ***!
@@ -357,7 +349,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='container'>\n  <div class=\"row justify-content-center\">\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend w-3\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setFill()'> Set Color </button>\n      </div>\n      <input type=\"text\" class=\"form-control\" type=\"text\" [(ngModel)]='fill' />\n    </div>\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend w-3\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setScale()'> Set Scale </button>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\".125\" type=\"number\" [(ngModel)]='scale' />\n    </div>\n\n    <div class=\"input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <button class=\"btn btn-warning\" type=\"button\" (click)='setSize()'>Deck Size</button>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\"5\" max=\"500\" onwheel type=\"number\" [(ngModel)]='deckSize' />\n    </div>\n\n\n    <button class='btn btn-primary m-1' (click)='getCard()'>Get Card</button>\n    <button class='btn btn-warning m-1' (click)='toggleBack()'>Toggle Back Type</button>\n    <button class='btn btn-warning m-1' (click)='toggleFace()'>Toggle Back/Face</button>\n\n    <button class='btn btn-danger m-1' (click)='resetCards()'>Reset Deck</button>\n  </div>\n\n</div>\n<div class=\"row\">\n\n  <svg-card *ngFor='let card of deck' class='col m-2' [scale]='scale' [card]='card' [fill]='fill' [state]='state' [back]='back'></svg-card>\n</div>\n"
+module.exports = "<div class='container jumbotron shadow-lg' id=\"dropdown\">\n  <div class=\"row justify-content-center mt-2\">\n      <button class='btn btn-primary m-1' (click)='getCard()'>Get Card</button>\n      <button class='btn btn-warning m-1' (click)='toggleBack()'>Toggle Back Type</button>\n      <button class='btn btn-warning m-1' (click)='toggleFace()'>Toggle Back/Face</button>\n      \n      <button class='btn btn-danger m-1' (click)='resetCards()'>Reset Deck</button>\n\n    <div class=\"input-group input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text backfill\"> Back Fill </span>\n      </div>\n      <input type=\"text\" class=\"form-control\" type=\"text\" [(ngModel)]='fill' />\n    </div>\n\n    <div class=\"input-group input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <span class=\"input-group-text text-center cardscale\"> Card Scale </span>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\".125\" type=\"number\" [(ngModel)]='scale' />\n    </div>\n\n    <div class=\"input-group input-group mb-3\">\n      <div class=\"input-group-prepend\">\n        <button class=\"btn btn-warning decksize\" type=\"button\" (click)='setSize()'>\n          <h3>Deck Size</h3>\n        </button>\n      </div>\n      <input type=\"text\" class=\"form-control\" step=\"5\" max=\"500\" onwheel type=\"number\" [(ngModel)]='deckSize' />\n    </div>\n\n\n  </div>\n\n</div>\n<div class=\"row\">\n\n  <svg-card *ngFor='let card of deck' class='col m-2' [scale]='scale' [card]='card' [fill]='fill' [state]='state' [back]='back'></svg-card>\n</div>"
 
 /***/ }),
 
@@ -399,6 +391,8 @@ var DeckComponent = /** @class */ (function () {
     }
     DeckComponent.prototype.ngOnInit = function () {
         var _this = this;
+        //get cards from deck service
+        this._deckService.dealCard.subscribe(function (data) { return _this.deck.push(data); }, function (error) { return console.log(error); });
         //sends scale/fill/deckSize to the service
         this.setScale();
         this.setFill();
@@ -407,9 +401,6 @@ var DeckComponent = /** @class */ (function () {
         this._deckService.scale.subscribe(function (data) { return _this.scale = data; }, function (error) { return console.log(error); });
         this._deckService.deckSize.subscribe(function (data) { return _this.deckSize = data; }, function (error) { return console.log(error); });
         this._deckService.fill.subscribe(function (data) { return _this.fill = data; }, function (error) { return console.log(error); });
-        this._deckService.dealCard.subscribe(function (data) { return _this.deck.push(data); }, function (error) { return console.log(error); });
-        //clears cards
-        this.resetCards();
     };
     //sets the deckSize in the service and gets random cards
     DeckComponent.prototype.setSize = function () {
@@ -418,12 +409,13 @@ var DeckComponent = /** @class */ (function () {
             return;
         }
         this.resetCards();
+        this._deckService.setDeckSize(this.deckSize);
         setTimeout(function () {
-            _this._deckService.setDeckSize(_this.deckSize);
+            console.log(_this.deckSize);
             for (var index = 0; index < _this.deckSize; index++) {
                 _this.getCard();
             }
-        }, 1000);
+        }, 500);
     };
     //toggles between back and alternative-back
     DeckComponent.prototype.toggleBack = function () {
@@ -479,7 +471,7 @@ var DeckComponent = /** @class */ (function () {
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'svg-deck',
             template: __webpack_require__(/*! ./svg-deck.component.html */ "./src/app/svg-deck/svg-deck.component.html"),
-            styles: [__webpack_require__(/*! ./svg-deck.component.css */ "./src/app/svg-deck/svg-deck.component.css")]
+            styles: ["\n    .backfill, .cardscale, .decksize {\n      width: 10rem;\n    }\n    #dropdown {\n      height: 2vh;\n\n      padding-bottom: 0px;\n      padding-top: 20px;\n      overflow: hidden;\n      transition: all 1s ease-out;\n    }\n    #dropdown:hover { \n      height: 25vh;\n      padding: 30px;\n    }\n  "]
         }),
         __metadata("design:paramtypes", [_svg_deck_service__WEBPACK_IMPORTED_MODULE_1__["DeckService"]])
     ], DeckComponent);
